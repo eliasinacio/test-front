@@ -1,7 +1,19 @@
+import Table from './components/Table'
+
+import './App.scss'
+
 function App() {
   return (
     <div className="App">
-      Hello world
+      <header>
+        <h2>
+          <span>Be</span>mobile
+        </h2>
+      </header>
+
+      <main>
+        <Table />
+      </main>
     </div>
   );
 }
