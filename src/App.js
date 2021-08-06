@@ -1,6 +1,7 @@
 import Table from './components/Table'
+import SearchBar from './components/SearchBar'
 
-import './App.scss'
+import './styles/App.scss'
 
 function App() {
   return (
@@ -12,7 +13,15 @@ function App() {
       </header>
 
       <main>
-        <Table />
+        <div className="employess">
+          
+          <div className="search-area">
+            <h1>Funcionários</h1>
+            <SearchBar />
+          </div>
+
+          <Table />
+        </div>
       </main>
     </div>
   );
