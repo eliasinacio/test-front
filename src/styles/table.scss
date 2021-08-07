@@ -3,11 +3,13 @@ table {
   
   border-collapse: collapse;
   text-align: center;
+
+  font-size: 1rem;
   
   th {
     background-color: #5984C0;
     color: #FFF;
-    padding: 5px;
+    padding: 15px;
 
     &:nth-child(1) { border-radius: 0.2rem 0 0 0; }
     &:nth-child(5) { border-radius: 0 0.2rem 0 0; }
@@ -18,16 +20,17 @@ table {
     color: #000;
     padding: 5px;
     border-bottom: 1px solid #AAA;
-  }
   
-  tr td {
     &:nth-child(1) { border-left: 1px solid #AAA; }
     &:nth-child(5) { border-right: 1px solid #AAA; }
-  }
 
-  tr:last-child td {
-    &:nth-child(1) { border-radius: 0 0 0 0.2rem; }
-    &:nth-child(5) { border-radius: 0 0 0.2rem 0; }
+    img {
+      margin-top: 5px;
+      width: 45px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
   }
 }
 

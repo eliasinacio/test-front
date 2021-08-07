@@ -1,6 +1,33 @@
+import { useEffect, useState } from 'react'
 import '../styles/table.scss'
 
-export default function Table() {
+const Table = () => {
+  const [ employees, setEmployees ] = useState([]); 
+
+  useEffect (() => {
+    fetch("https://raw.githubusercontent.com/eliasinacio/test-front/master/server/server.json")
+      .then(response => response.json())
+      .then(data => setEmployees(data.employess))
+  }, [])
+
+  function crateTableRow (person, key) {
+    let admisDate = person.admission_date;
+    admisDate = admisDate.slice(0,10).split("-");
+    admisDate = `${admisDate[2]}/${admisDate[1]}/${admisDate[0]}`
+  
+    let phone = person.phone;
+    phone = `(${phone.substr(0,2)}) ${phone.substr(2,2)} ${phone.substr(4,5)}-${phone.substr(9,4)}`
+  
+    return (
+      <tr key={key}>
+        <td><img src={person.image} alt={person.name}/></td>
+        <td>{person.name}</td>
+        <td>{person.job}</td>
+        <td>{admisDate}</td>
+        <td>{phone}</td>
+      </tr>
+    )
+  }
 
   return (
     <table>
@@ -15,24 +42,12 @@ export default function Table() {
       </thead>
 
       <tbody>
-        <tr>
-          <td>db</td>
-          <td>Rodrigo Mota</td>
-          <td>Front-End</td>
-          <td>23/01/2025</td>
-          <td>+55 (55) 95555-5555</td>
-        </tr>
-
-        <tr>
-          <td>db</td>
-          <td>Rodrigo Mota</td>
-          <td>Front-End</td>
-          <td>23/01/2025</td>
-          <td>+55 (55) 95555-5555</td>
-        </tr>
+        {employees.map((element, key) => crateTableRow(element, key))}
       </tbody>
       <tbody></tbody>
     </table>
 
   )
 }
+
+export default Table;
