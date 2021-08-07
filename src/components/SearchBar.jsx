@@ -12,7 +12,6 @@ const SearchBar = () => {
       for (let i=0; i<9; i++) {
         const tableRow = document.querySelector('tbody').childNodes[i];
         tableRow.style.display = ''
-        console.log(tableRow);
       }
     }
   }
@@ -23,9 +22,13 @@ const SearchBar = () => {
     for (let i=0; i<9; i++) {
       const tableRow = tableBody.childNodes[i];
 
-      const tableRowText = tableRow.textContent.toLowerCase();
+      // retira acentos e deixa tudo minúsculo.
+      let tableRowText = tableRow.textContent.toLowerCase();
+      tableRowText = tableRowText.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
-      if (tableRowText.search(input.toLowerCase()) === -1) {
+      const inputText = input.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+      
+      if (tableRowText.search(inputText.toLowerCase()) === -1) {
         tableRow.style.display = 'none'
       }
     }

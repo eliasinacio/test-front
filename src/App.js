@@ -13,7 +13,7 @@ function App() {
       </header>
 
       <main>
-        <div className="employess">
+        <div className="employees">
           
           <div className="search-area">
             <h1>Funcionários</h1>
