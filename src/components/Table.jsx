@@ -5,9 +5,9 @@ const Table = () => {
   const [ employees, setEmployees ] = useState([]); 
 
   useEffect (() => {
-    fetch("https://raw.githubusercontent.com/eliasinacio/test-front/master/server/server.json")
+    fetch("http://localhost:3000/employess/")
       .then(response => response.json())
-      .then(data => setEmployees(data.employess))
+      .then(data => setEmployees(data))
   }, [])
 
   function crateTableRow (person, key) {
