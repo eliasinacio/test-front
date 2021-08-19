@@ -44,7 +44,6 @@ const Table = () => {
       <tbody>
         {employees.map((element, key) => crateTableRow(element, key))}
       </tbody>
-      <tbody></tbody>
     </table>
 
   )
